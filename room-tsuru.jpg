@@ -1,0 +1,338 @@
+/* ================================================================
+   豊南焼肉 公式サイト  共通スタイル
+   色・文字サイズを変えたいときはこのファイルの :root を触る
+   ================================================================ */
+
+:root{
+  --sumi:      #16110F;  /* 背景（炭） */
+  --sumi-2:    #1F1917;  /* カード面 */
+  --sumi-3:    #2A2320;  /* 一段明るい面 */
+  --kinari:    #F2EBE3;  /* 本文の文字 */
+  --kinari-2:  #C2B7AC;  /* 弱い文字 */
+  --kinari-3:  #8E837A;  /* さらに弱い文字 */
+  --hi:        #D9531E;  /* 炭火（強調色） */
+  --hi-2:      #EE8B45;  /* 明るい炭火 */
+  --kin:       #C9A227;  /* 金（みかわ牛・50年） */
+  --line:      #382F2B;
+  --line-2:    #4A403A;
+
+  --serif:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --mono:"Roboto Mono",ui-monospace,Menlo,monospace;
+
+  --pad:20px;
+  --max:760px;
+  --bar:64px; /* 下部予約バーの高さ */
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--sumi);
+  color:var(--kinari);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.9;
+  padding-bottom:var(--bar);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--hi-2)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+
+/* ---------------- ヘッダー ---------------- */
+.site-head{
+  border-bottom:1px solid var(--line);
+  background:var(--sumi);
+  position:relative;z-index:5;
+}
+.site-head .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding-top:14px;padding-bottom:14px;
+}
+.logo{
+  font-family:var(--serif);font-weight:700;font-size:20px;
+  letter-spacing:.08em;color:var(--kinari);text-decoration:none;line-height:1.2;
+}
+.logo small{
+  display:block;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.22em;color:var(--kin);font-weight:400;margin-top:3px;
+}
+.head-tel{
+  font-family:var(--mono);font-size:15px;color:var(--kinari);
+  text-decoration:none;white-space:nowrap;letter-spacing:.02em;
+}
+.head-tel span{display:block;font-size:9px;letter-spacing:.18em;color:var(--kinari-3);text-align:right}
+
+/* ---------------- ナビ ---------------- */
+.nav{border-bottom:1px solid var(--line);background:var(--sumi)}
+.nav ul{
+  list-style:none;margin:0;padding:0 var(--pad);
+  max-width:var(--max);margin:0 auto;
+  display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a{
+  display:block;padding:12px 14px 11px;white-space:nowrap;
+  font-size:14px;color:var(--kinari-2);text-decoration:none;
+  border-bottom:2px solid transparent;
+}
+.nav a:hover{color:var(--kinari)}
+.nav a[aria-current="page"]{color:var(--kinari);border-bottom-color:var(--hi)}
+
+/* ---------------- ヒーロー ---------------- */
+.hero{
+  position:relative;
+  border-bottom:1px solid var(--line);
+  background:var(--sumi-2);
+}
+.hero-media{
+  position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--sumi-3);
+}
+.hero-media img{width:100%;height:100%;object-fit:cover}
+.hero-body{padding:28px var(--pad) 32px;max-width:var(--max);margin:0 auto}
+.hero-badge{
+  display:inline-block;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.18em;color:var(--kin);border:1px solid var(--kin);
+  padding:4px 10px;border-radius:2px;margin-bottom:16px;
+}
+.hero h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(27px,7.5vw,40px);line-height:1.45;
+  margin:0 0 14px;text-wrap:balance;letter-spacing:.02em;
+}
+.hero p{margin:0;color:var(--kinari-2);font-size:15.5px;max-width:34em}
+
+/* ---------------- 見出し・本文 ---------------- */
+main{display:block}
+section.blk{padding:44px 0;border-bottom:1px solid var(--line)}
+section.blk:last-of-type{border-bottom:0}
+.eyebrow{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;
+  color:var(--hi);text-transform:uppercase;margin:0 0 8px;
+}
+h2{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(21px,5vw,28px);line-height:1.5;
+  margin:0 0 18px;text-wrap:balance;letter-spacing:.02em;
+}
+h3{
+  font-family:var(--sans);font-weight:700;font-size:17px;
+  line-height:1.6;margin:0 0 8px;
+}
+p{margin:0 0 16px;color:var(--kinari-2)}
+p.lead{color:var(--kinari);font-size:16.5px}
+p:last-child{margin-bottom:0}
+
+/* ---------------- ボタン ---------------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 22px;border-radius:3px;text-decoration:none;
+  font-weight:700;font-size:15px;line-height:1;border:1px solid transparent;
+}
+.btn-primary{background:var(--hi);color:#fff}
+.btn-primary:hover{background:#C44715}
+.btn-ghost{border-color:var(--line-2);color:var(--kinari)}
+.btn-ghost:hover{border-color:var(--kinari-3)}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+
+/* ---------------- 予約バー（全ページ固定） ---------------- */
+.resbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;
+  height:var(--bar);
+  background:rgba(22,17,15,.96);
+  border-top:1px solid var(--line-2);
+  backdrop-filter:saturate(140%) blur(8px);
+  display:flex;align-items:stretch;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.resbar a{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2px;text-decoration:none;font-weight:700;font-size:14.5px;line-height:1.2;
+}
+.resbar .r-tel{color:var(--kinari);border-right:1px solid var(--line-2)}
+.resbar .r-book{background:var(--hi);color:#fff}
+.resbar small{font-family:var(--mono);font-size:9px;letter-spacing:.14em;font-weight:400;opacity:.75}
+
+/* ---------------- カード・リスト ---------------- */
+.cards{display:grid;gap:14px}
+.card{
+  background:var(--sumi-2);border:1px solid var(--line);
+  border-radius:3px;padding:20px;
+}
+.card h3{margin-bottom:6px}
+.card p{font-size:14.5px;margin-bottom:0}
+
+/* 情報の定義リスト */
+dl.info{
+  margin:0;display:grid;grid-template-columns:auto 1fr;
+  gap:0;border-top:1px solid var(--line);
+}
+dl.info dt{
+  padding:12px 16px 12px 0;border-bottom:1px solid var(--line);
+  font-size:13.5px;color:var(--kinari-3);white-space:nowrap;
+}
+dl.info dd{
+  margin:0;padding:12px 0;border-bottom:1px solid var(--line);
+  font-size:15px;color:var(--kinari);
+}
+dl.info dd small{display:block;color:var(--kinari-3);font-size:13px;line-height:1.7}
+
+/* お品書き */
+.menu-list{list-style:none;margin:0;padding:0}
+.menu-list li{
+  display:flex;align-items:baseline;gap:10px;
+  padding:11px 0;border-bottom:1px dotted var(--line-2);
+}
+.menu-list .nm{flex:1 1 auto}
+.menu-list .nm em{
+  display:block;font-style:normal;font-size:13px;color:var(--kinari-3);line-height:1.6;
+}
+.menu-list .pr{
+  font-family:var(--mono);font-size:15px;color:var(--kinari);
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+
+/* 宴会プラン */
+.plan{
+  background:var(--sumi-2);border:1px solid var(--line);border-radius:3px;
+  padding:20px;display:grid;gap:10px;
+}
+.plan .ppl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--hi-2);
+}
+.plan .price{
+  font-family:var(--mono);font-size:26px;color:var(--kinari);
+  font-variant-numeric:tabular-nums;line-height:1;
+}
+.plan .price span{font-size:13px;color:var(--kinari-3);margin-left:4px}
+.plan ul{margin:0;padding-left:1.1em;color:var(--kinari-2);font-size:14.5px}
+
+.plan p{font-size:14.5px;color:var(--kinari-2);margin:0}
+.plan p small{display:block;margin-top:8px;color:var(--kinari-3);font-size:13px;line-height:1.75}
+
+/* 注意書きの箇条書き */
+ul.rules{
+  margin:18px 0 0;padding:0;list-style:none;
+  display:flex;flex-direction:column;gap:6px;
+}
+ul.rules li{
+  padding-left:18px;position:relative;font-size:14.5px;color:var(--kinari-2);line-height:1.75;
+}
+ul.rules li::before{
+  content:"";position:absolute;left:2px;top:.85em;
+  width:6px;height:1px;background:var(--hi);
+}
+
+/* 目立たせたい一言 */
+.callout{
+  margin-top:26px;padding:16px 18px;
+  border-left:3px solid var(--hi);background:var(--sumi-2);
+  border-radius:0 3px 3px 0;font-size:14.5px;color:var(--kinari-2);line-height:1.85;
+}
+.callout strong{color:var(--kinari)}
+
+/* 見出し脇の営業時間・価格 */
+.hours{
+  display:block;font-family:var(--mono);font-size:12px;
+  color:var(--kinari-3);letter-spacing:.06em;margin-top:6px;font-weight:400;
+}
+
+/* お品書きのカテゴリ見出し */
+h3.cat{
+  margin:34px 0 4px;padding-bottom:8px;
+  border-bottom:1px solid var(--line-2);
+  font-family:var(--serif);font-size:19px;letter-spacing:.04em;
+}
+h3.cat:first-of-type{margin-top:8px}
+p.catnote{
+  margin:10px 0 4px;font-size:13.5px;color:var(--kinari-3);line-height:1.8;
+}
+
+/* 部位一覧 */
+.parts{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.part{background:var(--sumi-2);padding:15px 18px}
+.part h3{font-size:16px;margin:0 0 3px;letter-spacing:.04em}
+.part p{margin:0;font-size:13.5px;color:var(--kinari-2);line-height:1.75}
+@media (min-width:640px){.parts{grid-template-columns:1fr 1fr}}
+
+/* FAQ */
+details.faq{
+  border-bottom:1px solid var(--line);padding:2px 0;
+}
+details.faq summary{
+  cursor:pointer;padding:14px 0;font-weight:700;font-size:15.5px;
+  list-style:none;display:flex;gap:10px;align-items:baseline;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::before{content:"Q";font-family:var(--mono);color:var(--hi);font-size:13px}
+details.faq .a{padding:0 0 16px 22px;color:var(--kinari-2);font-size:14.5px}
+
+/* 写真の仮置き（本番では <img> に差し替える） */
+.ph{
+  background:
+    repeating-linear-gradient(45deg,var(--sumi-3) 0 10px,var(--sumi-2) 10px 20px);
+  border:1px dashed var(--line-2);border-radius:3px;
+  aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;
+  color:var(--kinari-3);line-height:1.8;
+}
+.ph.wide{aspect-ratio:16/9}
+
+/* 引用（大将の言葉） */
+blockquote.quote{
+  margin:24px 0;padding:22px 22px 22px 24px;
+  background:var(--sumi-2);border-left:3px solid var(--kin);
+  border-radius:0 3px 3px 0;
+}
+blockquote.quote p{
+  margin:0 0 12px;font-family:var(--serif);font-size:16.5px;
+  line-height:2;color:var(--kinari);
+}
+blockquote.quote p:last-child{margin-bottom:0}
+
+/* 地図の埋め込み */
+.mapbox{
+  position:relative;width:100%;aspect-ratio:16/10;
+  border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--sumi-2);
+}
+.mapbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* 未確定の数値（公開前に必ず差し替える） */
+.todo{
+  color:var(--hi-2);border-bottom:1px dashed var(--hi);
+}
+
+/* ---------------- フッター ---------------- */
+.site-foot{
+  border-top:1px solid var(--line);background:var(--sumi-2);
+  padding:36px 0 40px;margin-top:0;
+}
+.site-foot .fname{
+  font-family:var(--serif);font-size:19px;font-weight:700;margin:0 0 4px;
+}
+.site-foot p{font-size:14px;color:var(--kinari-3);margin:0 0 4px}
+.site-foot .flinks{
+  display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px;
+  padding-top:18px;border-top:1px solid var(--line);
+}
+.site-foot .flinks a{font-size:14px;color:var(--kinari-2);text-decoration:none}
+.site-foot .copy{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+  color:var(--kinari-3);margin-top:20px;
+}
+
+/* ---------------- 画面が広いとき ---------------- */
+@media (min-width:640px){
+  .cards.two{grid-template-columns:1fr 1fr}
+  .hero-media{aspect-ratio:21/9}
+  section.blk{padding:56px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+:focus-visible{outline:2px solid var(--hi-2);outline-offset:2px}
