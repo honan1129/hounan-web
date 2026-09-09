@@ -381,6 +381,8 @@ blockquote.quote p:last-child{margin-bottom:0}
   .hero-media{aspect-ratio:21/9}
   .hero-cover{min-height:clamp(520px,74vh,680px)}
   .hero-cover>img{object-position:center 28%}
+  /* 外観写真は看板が文字に隠れない位置で切る */
+  .hero-cover.hero-store>img{object-position:center 55%}
   section.blk{padding:56px 0}
 }
 @media (prefers-reduced-motion:reduce){
