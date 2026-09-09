@@ -94,6 +94,43 @@ a{color:var(--hi-2)}
 }
 .hero-media img{width:100%;height:100%;object-fit:cover}
 .hero-body{padding:28px var(--pad) 32px;max-width:var(--max);margin:0 auto}
+
+/* 写真の上に文言を重ねるヒーロー（トップ・アクセス） */
+.hero-cover{
+  position:relative;overflow:hidden;isolation:isolate;
+  min-height:clamp(440px,78vh,720px);
+  display:flex;align-items:flex-end;
+  background:var(--sumi);
+}
+.hero-cover>img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center 42%;z-index:0;
+}
+/* 下から立ち上がる暗幕。文字を読ませるためのもの */
+.hero-cover::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,
+    rgba(22,17,15,.96) 0%,
+    rgba(22,17,15,.88) 18%,
+    rgba(22,17,15,.55) 42%,
+    rgba(22,17,15,.18) 68%,
+    rgba(22,17,15,.05) 100%);
+}
+/* 文字が乗る帯だけ、うっすらぼかす（文字そのものはぼかさない） */
+.hero-cover::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:66%;
+  z-index:1;pointer-events:none;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  -webkit-mask-image:linear-gradient(to top,#000 52%,transparent 100%);
+  mask-image:linear-gradient(to top,#000 52%,transparent 100%);
+}
+.hero-cover .hero-body{
+  position:relative;z-index:2;width:100%;
+  padding:36px var(--pad) 40px;
+}
+.hero-cover h1{text-shadow:0 2px 18px rgba(0,0,0,.55)}
+.hero-cover p{color:var(--kinari-2);text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.hero-cover .btn-row{margin-top:22px}
 .hero-badge{
   display:inline-block;font-family:var(--mono);font-size:10.5px;
   letter-spacing:.18em;color:var(--kin);border:1px solid var(--kin);
@@ -342,6 +379,8 @@ blockquote.quote p:last-child{margin-bottom:0}
 @media (min-width:640px){
   .cards.two{grid-template-columns:1fr 1fr}
   .hero-media{aspect-ratio:21/9}
+  .hero-cover{min-height:clamp(520px,74vh,680px)}
+  .hero-cover>img{object-position:center 28%}
   section.blk{padding:56px 0}
 }
 @media (prefers-reduced-motion:reduce){
