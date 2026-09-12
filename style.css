@@ -4,17 +4,17 @@
    ================================================================ */
 
 :root{
-  --sumi:      #FFF9FB;  /* 背景：白に近い桜色 */
-  --sumi-2:    #FFFFFF;  /* カード面 */
-  --sumi-3:    #FBEAF0;  /* やわらかいピンク面 */
-  --kinari:    #37252C;  /* 本文の文字 */
-  --kinari-2:  #6F515D;  /* 弱い文字 */
-  --kinari-3:  #805865;  /* さらに弱い文字 */
-  --hi:        #C53F70;  /* 主役のローズピンク */
-  --hi-2:      #B63D68;  /* 補助にも読めるローズ */
-  --kin:       #A87436;  /* 記念日・銘柄のアクセント */
-  --line:      #F1DDE5;
-  --line-2:    #E8C4D2;
+  --sumi:      #FCFAF8;  /* 背景：温かい生成り */
+  --sumi-2:    #FFFEFD;  /* カード面 */
+  --sumi-3:    #F7EDEA;  /* 控えめな桜ベージュ */
+  --kinari:    #302629;  /* 本文の文字 */
+  --kinari-2:  #5E454E;  /* 弱い文字 */
+  --kinari-3:  #714F5B;  /* さらに弱い文字 */
+  --hi:        #A72E5A;  /* 主役のローズ */
+  --hi-2:      #8F234B;  /* 補助にも読めるローズ */
+  --kin:       #8B5C2E;  /* 記念日・銘柄のアクセント */
+  --line:      #E7D6D9;
+  --line-2:    #D8BDC4;
 
   --serif:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
   --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
@@ -29,24 +29,25 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;
-  background:linear-gradient(180deg,#FFF9FB 0%,#FFFDFC 42%,#FFF7FA 100%);
+  background:linear-gradient(180deg,#FCFAF8 0%,#FFFEFD 45%,#FAF5F3 100%);
   color:var(--kinari);
   font-family:var(--sans);
   font-size:16px;
   line-height:1.9;
-  padding-bottom:var(--bar);
+  padding-bottom:calc(var(--bar) + env(safe-area-inset-bottom));
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;height:auto;display:block}
 main img{filter:saturate(1.08) contrast(1.02)}
 a{color:var(--hi)}
+main p a{text-decoration-thickness:1px;text-underline-offset:.18em}
 
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 
 /* ---------------- ヘッダー ---------------- */
 .site-head{
   border-bottom:1px solid var(--line);
-  background:rgba(255,249,251,.93);
+  background:rgba(255,253,250,.95);
   backdrop-filter:blur(14px) saturate(130%);
   position:relative;z-index:5;
 }
@@ -59,17 +60,17 @@ a{color:var(--hi)}
   letter-spacing:.08em;color:var(--kinari);text-decoration:none;line-height:1.2;
 }
 .logo small{
-  display:block;font-family:var(--mono);font-size:9.5px;
+  display:block;font-family:var(--mono);font-size:10px;
   letter-spacing:.22em;color:var(--kin);font-weight:400;margin-top:3px;
 }
 .head-tel{
   font-family:var(--mono);font-size:15px;color:var(--kinari);
   text-decoration:none;white-space:nowrap;letter-spacing:.02em;
 }
-.head-tel span{display:block;font-size:9px;letter-spacing:.18em;color:var(--kinari-3);text-align:right}
+.head-tel span{display:block;font-size:10.5px;letter-spacing:.14em;color:var(--kinari-3);text-align:right}
 
 /* ---------------- ナビ ---------------- */
-.nav{border-bottom:1px solid var(--line);background:var(--sumi)}
+.nav{border-bottom:1px solid var(--line);background:#F8F1F0}
 .nav ul{
   list-style:none;margin:0;padding:0 var(--pad);
   max-width:var(--max);margin:0 auto;
@@ -159,8 +160,8 @@ main{display:block}
 section.blk{padding:44px 0;border-bottom:1px solid var(--line)}
 section.blk:last-of-type{border-bottom:0}
 .eyebrow{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;
-  color:var(--hi);text-transform:uppercase;margin:0 0 8px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  color:var(--hi-2);text-transform:uppercase;margin:0 0 8px;
 }
 h2{
   font-family:var(--serif);font-weight:700;
@@ -182,9 +183,9 @@ p:last-child{margin-bottom:0}
   font-weight:700;font-size:15px;line-height:1;border:1px solid transparent;
 }
 .btn-primary{background:var(--hi);color:#fff}
-.btn-primary:hover{background:#A82F5A}
-.btn-ghost{border-color:#DDA8BB;color:var(--hi);background:rgba(255,255,255,.72)}
-.btn-ghost:hover{border-color:var(--hi);background:#FFF4F7}
+.btn-primary:hover{background:#8F234B}
+.btn-ghost{border-color:#BD718B;color:var(--hi);background:rgba(255,255,255,.76)}
+.btn-ghost:hover{border-color:var(--hi);background:#F9EEF1}
 .hero-cover .btn-ghost{background:#fff;border-color:#D6B8AA;color:#6B4037}
 .hero-cover .btn-ghost:hover{background:#F8F0EB;border-color:#B98E7D;color:#51332C}
 .btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
@@ -192,8 +193,8 @@ p:last-child{margin-bottom:0}
 /* ---------------- 予約バー（全ページ固定） ---------------- */
 .resbar{
   position:fixed;left:0;right:0;bottom:0;z-index:50;
-  height:var(--bar);
-  background:rgba(255,250,252,.94);
+  height:calc(var(--bar) + env(safe-area-inset-bottom));
+  background:rgba(255,252,250,.98);
   border-top:1px solid var(--line-2);
   backdrop-filter:saturate(140%) blur(8px);
   display:flex;align-items:stretch;
@@ -205,14 +206,14 @@ p:last-child{margin-bottom:0}
 }
 .resbar .r-tel{color:var(--kinari);border-right:1px solid var(--line-2)}
 .resbar .r-book{background:var(--hi);color:#fff}
-.resbar small{font-family:var(--mono);font-size:9px;letter-spacing:.14em;font-weight:400;opacity:.75}
+.resbar small{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;font-weight:400;opacity:1}
 
 /* ---------------- カード・リスト ---------------- */
 .cards{display:grid;gap:14px}
 .card{
-  background:linear-gradient(145deg,#fff 0%,#FFF8FA 100%);border:1px solid var(--line);
+  background:linear-gradient(145deg,#FFFEFD 0%,#FCF7F5 100%);border:1px solid var(--line);
   border-radius:10px;padding:20px;
-  box-shadow:0 8px 22px rgba(139,55,85,.055);
+  box-shadow:0 8px 22px rgba(74,44,51,.05);
 }
 .card h3{margin-bottom:6px}
 .card p{font-size:14.5px;margin-bottom:0}
@@ -261,7 +262,7 @@ dl.info dd small{display:block;color:var(--kinari-3);font-size:13px;line-height:
 
 /* 宴会プラン */
 .plan{
-  background:linear-gradient(145deg,#fff 0%,#FFF8FA 100%);border:1px solid var(--line);border-radius:10px;
+  background:linear-gradient(145deg,#FFFEFD 0%,#FCF7F5 100%);border:1px solid var(--line);border-radius:10px;
   padding:20px;display:grid;gap:10px;
 }
 .plan .ppl{
@@ -349,7 +350,7 @@ details.faq .a{padding:0 0 16px 22px;color:var(--kinari-2);font-size:14.5px}
 /* 引用（大将の言葉） */
 blockquote.quote{
   margin:24px 0;padding:22px 22px 22px 24px;
-  background:#FFF4F7;border-left:3px solid var(--kin);
+  background:#F8F0EE;border-left:3px solid var(--kin);
   border-radius:0 8px 8px 0;
 }
 blockquote.quote p{
@@ -372,7 +373,7 @@ blockquote.quote p:last-child{margin-bottom:0}
 
 /* ---------------- フッター ---------------- */
 .site-foot{
-  border-top:1px solid var(--line);background:#FFF0F5;
+  border-top:1px solid var(--line);background:#F5EAE7;
   padding:36px 0 40px;margin-top:0;
 }
 .site-foot .fname{
@@ -406,7 +407,7 @@ blockquote.quote p:last-child{margin-bottom:0}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
 }
-:focus-visible{outline:2px solid var(--hi-2);outline-offset:2px}
+:focus-visible{outline:3px solid #7A3D50;outline-offset:3px}
 
 /* ---------------- トップページの見どころ ---------------- */
 .hero-points{
@@ -424,20 +425,20 @@ blockquote.quote p:last-child{margin-bottom:0}
 .quick-guide-inner{
   display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
   padding:12px;border:1px solid var(--line);border-radius:12px;
-  background:rgba(255,255,255,.78);box-shadow:0 10px 24px rgba(139,55,85,.06);
+  background:rgba(255,254,253,.86);box-shadow:0 10px 24px rgba(74,44,51,.055);
 }
 .quick-guide a{
   min-height:72px;padding:10px 8px;display:flex;flex-direction:column;justify-content:center;
-  text-decoration:none;text-align:center;border-radius:8px;background:#FFF6F8;color:var(--kinari);
+  text-decoration:none;text-align:center;border-radius:8px;background:#FCF6F5;color:var(--kinari);
   font-size:13px;font-weight:700;line-height:1.45;
 }
-.quick-guide a small{display:block;margin-bottom:3px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--hi);font-weight:400}
-.quick-guide a:hover{background:#FCE5ED;color:var(--hi)}
+.quick-guide a small{display:block;margin-bottom:3px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--hi-2);font-weight:500}
+.quick-guide a:hover{background:#F7E9ED;color:var(--hi)}
 .quick-traits{
   display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0 0 10px;padding:0;
   color:#624940;font-size:12px;font-weight:700;line-height:1.5;
 }
-.quick-traits span{padding:3px 8px;border-radius:999px;background:#FFF3F6;border:1px solid var(--line)}
+.quick-traits span{padding:3px 8px;border-radius:999px;background:#FAF0F1;border:1px solid var(--line)}
 
 /* トップだけに置く店名ロゴ。写真上のキャッチコピーより控えめに見せる。 */
 .hero-logo{
@@ -453,8 +454,10 @@ blockquote.quote p:last-child{margin-bottom:0}
   display:flex;align-items:center;gap:10px;margin:0 0 16px;
 }
 .hero-full-logo{
-  display:block;width:min(290px,82vw);height:170px;margin:-12px 0 5px;
-  object-fit:cover;object-position:center;filter:none!important;
+  display:block;width:min(240px,70vw);height:auto;margin:0 0 12px;
+  padding:7px 10px;border:1px solid rgba(255,252,247,.9);border-radius:10px;
+  background:rgba(255,252,247,.95);box-shadow:0 8px 18px rgba(18,10,7,.22);
+  filter:none!important;
 }
 .brand-cow-logo{
   width:48px;height:48px;object-fit:contain;padding:4px;border-radius:50%;
@@ -467,9 +470,9 @@ blockquote.quote p:last-child{margin-bottom:0}
 .store-brand .brand-cow-logo{width:46px;height:46px;flex:0 0 auto}
 .store-brand p{margin:0;color:#49362F;font-family:var(--serif);font-size:18px;font-weight:700;line-height:1.35}
 .store-brand small{display:block;margin-top:3px;font-family:var(--mono);font-size:9px;letter-spacing:.13em;color:var(--hi);font-weight:400}
-.store-brand{justify-content:center;padding:6px 14px}
+.store-brand{justify-content:center;padding:10px 14px}
 .store-full-logo{
-  display:block;width:220px;height:130px;object-fit:cover;object-position:center;filter:none!important;
+  display:block;width:min(200px,72vw);height:auto;filter:none!important;
 }
 
 /* 写真つきの部屋案内は、カードとして統一する。 */
@@ -528,7 +531,7 @@ blockquote.quote p:last-child{margin-bottom:0}
 .hero-cover.hero-home .brand-cow-logo{
   width:40px;height:40px;padding:3px;background:rgba(35,22,17,.34);border-color:rgba(255,252,248,.58);
 }
-.hero-cover.hero-home .hero-full-logo{filter:drop-shadow(0 2px 10px rgba(18,10,7,.52))!important}
+.hero-cover.hero-home .hero-full-logo{filter:none!important}
 .hero-cover.hero-home .btn-row{margin-top:20px}
 .hero-cover.hero-home .btn-primary{
   background:#FFFAF4;border-color:#FFFAF4;color:#3C281E;box-shadow:0 6px 18px rgba(18,10,7,.22);
@@ -545,7 +548,7 @@ blockquote.quote p:last-child{margin-bottom:0}
       rgba(43,26,19,0) 86%);
   }
   .hero-cover.hero-home .hero-body{width:calc(100% - (var(--pad) * 2));max-width:none;padding:24px 0 30px}
-  .hero-full-logo{width:min(244px,76vw);height:144px;margin:-8px 0 2px}
+  .hero-full-logo{width:min(205px,64vw);margin:0 0 10px}
 }
 @media (min-width:640px){
   .quick-guide{margin-top:34px}
